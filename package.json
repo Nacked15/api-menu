@@ -1,0 +1,23 @@
+{
+  "name": "api-menu",
+  "version": "1.0.0",
+  "description": "Api rest full para dasboard angular con mysql",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "J. Luis Yama",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "connect-multiparty": "^2.0.0",
+    "cors": "^2.8.3",
+    "express": "^4.15.3",
+    "mysql": "^2.13.0",
+    "passport": "^0.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
