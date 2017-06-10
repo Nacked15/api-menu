@@ -2,8 +2,29 @@
 
 var express    = require('express');
 var bodyParser = require('body-parser');
-
+var passport      = require('passport');
+var session       = require('express-session');
+var Store         = require('express-session').Store;
+var flash         = require('connect-flash');
+var BetterMemoryStore = require(__dirname + '/memory');
 var app = express();
+
+var store = new BetterMemoryStore({ expires: 60 * 60 * 1000, debug: true});
+
+//Set the session name and the session secret
+app.use(session({
+    name: 'JSESSION',
+    store: store,
+    secret: 'SUDOSECRETTXT',
+    resave: true,
+    saveUninitialized: true
+}));
+
+//Initialize the Passport module 
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 //Routes
 var user_routes = require('./routes/user');
